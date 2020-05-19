@@ -3,7 +3,7 @@
 ![build](https://github.com/CreateThrive/react-intl-hooks/workflows/build/badge.svg?branch=master)
 [![codecov](https://codecov.io/gh/CreateThrive/react-intl-hooks/branch/master/graph/badge.svg)](https://codecov.io/gh/CreateThrive/react-intl-hooks)
 [![Known Vulnerabilities](https://snyk.io/test/github/CreateThrive/react-intl-hooks/badge.svg?targetFile=package.json)](https://snyk.io/test/github/CreateThrive/react-intl-hooks?targetFile=package.json)
-![npm bundle size](https://img.shields.io/bundlephobia/min/react-intl-intl)
+![npm bundle size](https://img.shields.io/bundlephobia/min/react-intl-hooks)
 ![npm type definitions](https://img.shields.io/npm/types/react-intl-hooks)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 ![NPM](https://img.shields.io/npm/l/react-intl-hooks)
