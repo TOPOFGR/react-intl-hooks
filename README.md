@@ -2,6 +2,7 @@
 
 ![build](https://github.com/CreateThrive/react-intl-hooks/workflows/build/badge.svg?branch=master)
 [![codecov](https://codecov.io/gh/CreateThrive/react-intl-hooks/branch/master/graph/badge.svg)](https://codecov.io/gh/CreateThrive/react-intl-hooks)
+[![Known Vulnerabilities](https://snyk.io/test/github/CreateThrive/react-intl-hooks/badge.svg?targetFile=package.json)](https://snyk.io/test/github/CreateThrive/react-intl-hooks?targetFile=package.json)
 ![npm bundle size](https://img.shields.io/bundlephobia/min/react-intl-intl)
 ![npm type definitions](https://img.shields.io/npm/types/react-intl-hooks)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
@@ -179,11 +180,14 @@ import { useFormatMessage } from 'react-intl-hooks';
 Then use it like this:
 
 ```jsx
-const t = useFormatMessage({
+const t = useFormatMessage(
+  {
     id: 'app.greeting',
     defaultMessage: 'Hello, {name}!',
     description: 'Greeting to welcome the user to the app',
-}, { name: 'Eric' }); // "Hello, Eric!"
+  },
+  { name: 'Eric' },
+); // "Hello, Eric!"
 ```
 
 The hook return a translation function that can be used inside your JSX code of your components.
@@ -296,7 +300,7 @@ Object containing formating options of the time to be translated. Each property 
   hour?: string,
   minute?: string,
   second?: string,
-  weekday?: string, 
+  weekday?: string,
   era?: string
 }
 ```
@@ -383,7 +387,7 @@ Object containing formating options of the time to be translated. Each property 
   hour?: string,
   minute?: string,
   second?: string,
-  weekday?: string, 
+  weekday?: string,
   era?: string
 }
 ```
@@ -463,10 +467,11 @@ Object containing formating options of the number to be translated. Each propert
   currency?: string
 }
 ```
+
 - **style**: the format of the output message. Possible values are:
   - "percent" (e.g., 50%).
   - "decimal" (e.g., 0.5).
-  - "currency" can be used in conjuntion with the property `currency` (e.g., $1,000).
+  - "currency" can be used in conjuntion with the property `currency` (e.g., \$1,000).
   - "unit" can be used in conjuntion with the properties `unit` and `unitDisplay` (e.g., 1,000kB).
 - **unit**: can be used when `style` property is set to "unit". Possible values are almost 27 units, we'll show some of all the possible values:
   - "kilobyte" (e.g., kB).
@@ -476,7 +481,7 @@ Object containing formating options of the number to be translated. Each propert
   - "long" (e.g., 1,000 degrees Fahrenheit).
   - "short" (e.g., 1,000kB), the narrow style could be similar to the short style for some locales.
 - **currency**: used to change the formatting style of a currency, should be used when the property `style` is set to "currency". Possible values are the ISO 4217 abbreviations of the currencies:
-  - "USD" (e.g., $1,000.00).
+  - "USD" (e.g., \$1,000.00).
   - "EUR" (e.g., €1.000,00).
 
 In the following example you see how can you use the formatting options.
@@ -636,7 +641,7 @@ Object containing formating options for the list to be formatted. Each property 
 - **numeric**: the format of the output message. Possible values are:
   - "always" (default, e.g., 1 day ago).
   - "auto" (e.g., yesterday), the "auto" value allows to not always have to
-     use numeric values in the output.
+    use numeric values in the output.
 - **style**: the length of the internationalized message. Possible values are:
   - "long" (default, e.g., in 1 month).
   - "short" (e.g., in 1 mo.).
@@ -714,9 +719,10 @@ Object containing formating options for the number to be formatted. The property
 ```
 
 - **type**: the type of the output message. Possible values are:
+
   - "cardinal" (default, e.g., two).
   - "ordinal" (e.g., two).
-  
+
 #### Example:
 
 ```jsx
