@@ -10,11 +10,11 @@
 
 ## What is this?
 
-React-intl-hooks is a small and fast library of hooks that you can use to replace all the [Format.js](https://formatjs.io/) components. This helps you have a consistent codebase if you're using the latest [React.js](https://reactjs.org/) features!.
+React-intl-hooks is a small and fast library that you can use to replace [Format.js](https://formatjs.io/) components. This allows for a consistent codebase if you're using the latest [React.js](https://reactjs.org/) features!.
 
 ## Motivation
 
-Format.js with [react-intl](https://www.npmjs.com/package/react-intl) is an awesome library but for the people like us that loves React new features like hooks, it's a bit daunting to still use libraries that have components. So we decided to combine the great things that the react-intl team did with React hooks.
+Format.js with [react-intl](https://www.npmjs.com/package/react-intl) is an awesome library, but for the people like us who love React new features like hooks, it can still be bit daunting to use libraries that have components. So we decided to combine the great things about react-intl along with React hooks.
 
 ## Installation
 
@@ -81,15 +81,15 @@ ReactDOM.render(
 );
 ```
 
-We import all our translations files and we get the locale from the users browser. In case the locale is not available we'll default to **en** as our locale.
+We import our translation files and we get the locale from the user's browser. If the locale is not available we can default to **en** as our locale.
 
 ### Translation files
 
-Create `src/translations` folder in your project and create files for the locales you want to add support in you React app.
+Create `src/translations` folder in your project and create files for the locales you want to support in you React app.
 
-We are going to create create translations files for **English** and **Spanish**.
+In this example we're going to create translation files for **English** and **Spanish**.
 
-Here's the contet we placed in our files.
+Here's some content for our files:
 
 #### `src/translations/en.json`:
 
@@ -109,7 +109,7 @@ Here's the contet we placed in our files.
 
 ### Translating your app
 
-Translating your components it's just as easy as importing the hook you need.
+Translating your components is just as easy as importing the hook you need.
 
 `src/app.js`:
 
@@ -143,9 +143,9 @@ function App() {
 export default App;
 ```
 
-In the last example we simply translate the default app you get when you use `create-react-app` to boostrap your project.
+In the last example we simply translated the default app you get when you use `create-react-app` to boostrap your project.
 
-Your have a wide variety of hooks to choose depending the things you want to translate.
+Your have a wide variety of hooks to choose depending on the things you want to translate.
 
 ```jsx
 import {
@@ -159,15 +159,15 @@ import {
 } from 'react-intl-hooks';
 ```
 
-We'll have a detail look on each one in the next section.
+We'll have a detailed look of each one in the next section.
 
 ## Hooks
 
-Here you'll get a detail explanation of every hook `react-intl-hooks` has to offer.
+Here you'll get a detailed explanation of every hook `react-intl-hooks` has to offer.
 
 ### `useFormatMessage`
 
-Hook used to translate texts in your application.
+Hook used to translate text in your application.
 
 #### How to use it
 
@@ -190,7 +190,7 @@ const t = useFormatMessage(
 ); // "Hello, Eric!"
 ```
 
-The hook return a translation function that can be used inside your JSX code of your components.
+The hook returns a translation function that can be used inside the JSX code of your components.
 
 #### Parameters
 
@@ -209,7 +209,7 @@ t(message: MessageDescriptor, values?: MessageFormatValues);
 ```
 
 - **id**: id corresponding to the text translated in your translation files.
-- **description (optional)**: description of the translated text, this might be useful for more bigger and complex apps.
+- **description (optional)**: description of the translated text, this might be useful for bigger and complex apps.
 - **defaultMessage (optional)**: optional default message in case the id of the translated text is not found.
 
 ##### Values (optional)
@@ -256,7 +256,7 @@ export default MyComponent;
 
 ### `useFormatDate`
 
-This hook is used to translate a date into the users locale.
+This hook is used to translate a date to the users locale.
 
 #### How to use it
 
@@ -276,7 +276,7 @@ const t = useFormatDate(Date.now(), {
 }); // "3/4/2016"
 ```
 
-The hook return a translation function that can be used inside your JSX code of your components.
+The hook returns a translation function that can be used inside the JSX code of your components.
 
 #### Parameters
 
@@ -305,7 +305,7 @@ Object containing formating options of the time to be translated. Each property 
 }
 ```
 
-In the following example you see how can you use the formatting options.
+In the following example you see how to use the formatting options.
 
 #### Example:
 
@@ -347,7 +347,7 @@ export default MyComponent;
 
 ### `useFormatTime`
 
-This hook is used to format a time into the user locale.
+This hook is used to format a time to the user locale.
 
 #### How to use it
 
@@ -363,7 +363,7 @@ Then use it like this:
 const t = useFormatTime(Date.now()); // "4:03 PM"
 ```
 
-The hook return a translation function that can be used inside your JSX code of your components.
+The hook returns a translation function that can be used inside the JSX code of your components.
 
 #### Parameters
 
@@ -377,7 +377,7 @@ The time to be translated, it can have the following types: `Date` or `number`.
 
 ##### Options (optional)
 
-Object containing formating options of the time to be translated. Each property is **optional** and can recieve the following values: `short` or `numeric`.
+Object containing formatting options of the time to be translated. Each property is **optional** and can recieve the following values: `short` or `numeric`.
 
 ```typescript
 {
@@ -392,7 +392,7 @@ Object containing formating options of the time to be translated. Each property 
 }
 ```
 
-In the following example you see how can you use the formatting options.
+In the following example you see how to use the formatting options.
 
 #### Example:
 
@@ -427,7 +427,7 @@ export default MyComponent;
 
 ### `useFormatNumber`
 
-This hook is used to format numbers into the user locale.
+This hook is used to format numbers to the user locale.
 
 #### How to use it
 
@@ -443,7 +443,7 @@ Then use it like this:
 const t = useFormatNumber(0.5, { style: 'percent' }); // "50%"
 ```
 
-The hook return a translation function that can be used inside your JSX code of your components.
+The hook returns a translation function that can be used inside the JSX code of your components.
 
 #### Parameters
 
@@ -453,11 +453,11 @@ t(value: number, options?: FormatNumberOptions);
 
 ##### Value
 
-The number to be formatted into the user locale.
+The number to be formatted to the user locale.
 
 ##### Options (optional)
 
-Object containing formating options of the number to be translated. Each property is **optional**.
+Object containing formatting options of the number to be translated. Each property is **optional**.
 
 ```typescript
 {
@@ -473,7 +473,7 @@ Object containing formating options of the number to be translated. Each propert
   - "decimal" (e.g., 0.5).
   - "currency" can be used in conjuntion with the property `currency` (e.g., \$1,000).
   - "unit" can be used in conjuntion with the properties `unit` and `unitDisplay` (e.g., 1,000kB).
-- **unit**: can be used when `style` property is set to "unit". Possible values are almost 27 units, we'll show some of all the possible values:
+- **unit**: can be used when `style` property is set to "unit". Possible values are almost 27 units, we'll show some of the possible values:
   - "kilobyte" (e.g., kB).
   - "fahrenheit" (e.g., °F).
 - **unitDisplay**: used to change the formatting style of a unit. Possible values are:
@@ -484,7 +484,7 @@ Object containing formating options of the number to be translated. Each propert
   - "USD" (e.g., \$1,000.00).
   - "EUR" (e.g., €1.000,00).
 
-In the following example you see how can you use the formatting options.
+In the following example you see how to use the formatting options.
 
 #### Example:
 
@@ -517,7 +517,7 @@ export default MyComponent;
 
 ### `useFormatRelativeTime`
 
-This hook recieves a number formats it into a relative time.
+This hook recieves a number and formats it to a relative time.
 
 #### How to use it
 
@@ -533,7 +533,7 @@ Then use it like this:
 const t = useFormatRelativeTime(1, 'hour'); // "in 1 hour"
 ```
 
-The hook return a translation function that can be used inside your JSX code of your components.
+The hook returns a translation function that can be used inside the JSX code of your components.
 
 #### Parameters
 
@@ -551,7 +551,7 @@ The unit of the number to be formatted. It can have the following values: `secon
 
 ##### Options (optional)
 
-Object containing formating options of the time to be transformed into a relative time. Each property is **optional**.
+Object containing formatting options of the time to be transformed into a relative time. Each property is **optional**.
 
 ```typescript
 {
@@ -615,7 +615,7 @@ Then use it like this:
 const t = useFormatList(['5 hours', '3 minutes'], { type: 'unit' }); // 5 hours, 3 minutes
 ```
 
-The hook return a translation function that can be used inside your JSX code of your components.
+The hook returns a translation function that can be used inside the JSX code of your components.
 
 #### Parameters
 
@@ -629,7 +629,7 @@ Array of strings to be joined together.
 
 ##### Options (optional)
 
-Object containing formating options for the list to be formatted. Each property is **optional**.
+Object containing formatting options for the list to be formatted. Each property is **optional**.
 
 ```typescript
 {
@@ -680,7 +680,7 @@ export default MyComponent;
 
 This hook will return a plural category string: "zero", "one", "two", "few", "many", or "other".
 
-**Note**: This hook should only be used in apps that only need to support one language. If your app supports multiple languages use `useFormatMessage` instead.
+**Note**: This hook should only be used in apps that need to support one language. If your app supports multiple languages use `useFormatMessage` instead.
 
 #### How to use it
 
@@ -696,7 +696,7 @@ Then use it like this:
 const t = useFormatPlural(2, { style: 'ordinal' }); // "two"
 ```
 
-The hook return a translation function that can be used inside your JSX code of your components.
+The hook returns a translation function that can be used inside the JSX code of your components.
 
 #### Parameters
 
@@ -710,7 +710,7 @@ Number to be pluralized.
 
 #### Options (optional)
 
-Object containing formating options for the number to be formatted. The property is **optional**.
+Object containing formatting options for the number to be formatted. The property is **optional**.
 
 ```typescript
 {
