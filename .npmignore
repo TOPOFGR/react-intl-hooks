@@ -1,0 +1,17 @@
+src/
+tests/
+.babelrc
+.npmignore
+yarn-error.log
+yarn.lock
+CONTRIBUTING.md
+.eslintrc
+.DS_Store
+/rollup
+tsconfig.json
+/coverage
+.github
+.eslintrc
+CODE_OF_CONDUCT.md
+.vscode
+.prettierrc

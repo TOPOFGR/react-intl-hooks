@@ -1,0 +1,133 @@
+{
+  "name": "react-intl-hooks",
+  "version": "0.0.0",
+  "description": "React hooks for internationalization without the hassle",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CreateThrive/react-intl-hooks"
+  },
+  "bugs": {
+    "url": "https://github.com/CreateThrive/react-intl-hooks/issues"
+  },
+  "homepage": "https://github.com/CreateThrive/react-intl-hooks",
+  "keywords": [
+    "react",
+    "react-native",
+    "react-hooks",
+    "hooks",
+    "custom-hooks",
+    "typescript",
+    "i18n",
+    "internationalization",
+    "translation",
+    "translate",
+    "localization"
+  ],
+  "author": "Mateo Kruk <mateo@createthrive.com>",
+  "contributors": [
+    {
+      "name": "Mateo Kruk",
+      "email": "mateo@createthrive.com"
+    },
+    {
+      "name": "Tomas Piaggio",
+      "email": "tomas@createthrive.com"
+    }
+  ],
+  "scripts": {
+    "prettier": "prettier --write './src/**/*.{ts,tsx}' './tests/**/*.{ts,tsx}' --config ./.prettierrc",
+    "lint": "yarn lint:check && yarn prettier",
+    "lint:check": "eslint ./src  ./tests --ext .tsx,.ts --fix",
+    "lint:ci": "cross-env CI=true yarn lint",
+    "test": "jest",
+    "test:watch": "yarn test --watchAll",
+    "test:coverage": "yarn test --coverage",
+    "test:ci": "cross-env CI=true yarn test",
+    "version": "yarn lint:ci && git add -A src",
+    "postversion": "yarn publish && git push && git push --tags",
+    "preinstall": "rm -rf node_modules",
+    "install:ci": "yarn install --frozen-lockfile",
+    "prebuild": "rm -rf dist",
+    "build": "rollup -c ./rollup/rollup.config.js",
+    "prepublishOnly": "yarn preinstall && yarn install:ci && yarn test:ci && yarn lint:ci && yarn prebuild && yarn build"
+  },
+  "dependencies": {
+    "react-intl": "^4.5.3"
+  },
+  "peerDependencies": {
+    "react": "^16.9.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-react": "^7.9.4",
+    "@babel/preset-typescript": "^7.9.0",
+    "@rollup/plugin-commonjs": "^11.1.0",
+    "@testing-library/react-hooks": "^3.2.1",
+    "@types/jest": "^25.2.2",
+    "@types/node": "^14.0.1",
+    "@typescript-eslint/eslint-plugin": "^2.33.0",
+    "@typescript-eslint/parser": "^2.33.0",
+    "babel-jest": "^26.0.1",
+    "codecov": "^3.6.5",
+    "cross-env": "^7.0.2",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react-hooks": "^2.5.1",
+    "husky": "^4.2.5",
+    "jest": "^25.5.4",
+    "lint-staged": "^10.2.2",
+    "prettier": "^2.0.5",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-test-renderer": "^16.13.1",
+    "rollup": "^2.10.0",
+    "rollup-plugin-typescript2": "^0.27.1",
+    "ts-jest": "^25.5.1",
+    "tslib": "^2.0.0",
+    "typescript": "^3.9.2"
+  },
+  "lint-staged": {
+    "*.{tsx,ts}": [
+      "yarn lint:ci"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn test:ci && lint-staged"
+    }
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "roots": [
+      "<rootDir>/tests"
+    ],
+    "testMatch": [
+      "**/?(*.)+(spec|test).ts?(x)"
+    ],
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
+  }
+}

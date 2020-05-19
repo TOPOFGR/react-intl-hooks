@@ -1,0 +1,45 @@
+name: build
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x, 13.x, 14.x]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Build
+        run: yarn build
+      - name: Lint
+        run: yarn lint:ci
+      - name: Test
+        run: yarn test:ci
+  
+  coverage:
+    needs: build
+    runs-on: ubuntu-latest
+    
+    steps: 
+      - uses: actions/checkout@v2
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Upload coverage data
+        run: yarn test:coverage --token="$CODECOV_TOKEN"
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
